@@ -226,24 +226,8 @@ typedef struct
 
 #include "platform.h"
 
-#if defined(SDL_FRAMEWORK) || defined(NO_SDL_CONFIG)
-#if defined(USE_SDL2)
-#ifdef __EMSCRIPTEN__
-#include <GL/gl.h>
-#include <GL/glext.h>
-#endif
 #include <SDL2/SDL.h>
-#ifndef __EMSCRIPTEN__
 #include <SDL2/SDL_opengl.h>
-#endif
-#else /* SDL-1.2: */
-#include <SDL/SDL.h>
-#include <SDL/SDL_opengl.h>
-#endif
-#else /**/
-#include "SDL.h"
-#include "SDL_opengl.h"
-#endif
 
 #ifndef APIENTRY
 #define	APIENTRY

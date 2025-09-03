@@ -2607,16 +2607,6 @@ static size_t mz_zip_file_read_func(void *opaque, mz_uint64 ofs, void *buf, size
 	#endif
 }
 
-#ifndef USE_SDL2 /* no SDL_RWsize in SDL-1.2 */
-static Sint32 SDLCALL SDL_RWsize(SDL_RWops *rw) {
-	Sint32 pos, size;
-	if ((pos=SDL_RWtell(rw))<0) return -1;
-	size = SDL_RWseek(rw, 0, RW_SEEK_END);
-	SDL_RWseek(rw, pos, RW_SEEK_SET);
-	return size;
-}
-#endif
-
 /*
 ================
 LOC_LoadFile
